@@ -1,0 +1,357 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication112.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="zh">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - 嘉嘉測試</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+ <!-- 多層選單 -->
+    <link href="/Content/bootstrap-4-navbar.css" rel="stylesheet">
+
+    <style type="text/css">
+        .navbar-header {
+            width: 148px;
+        }
+        .margin-right{
+            margin-right: 15px !important;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+                <a class="navbar-brand" href="/Default">首頁</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                登入作業
+ <!-- c1登入作業 -->
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/pages/c1/Login">登入應用系統</a></li>
+                                <li><a class="dropdown-item" href="/pages/c1/PM1-02">登出應用系統</a></li>
+                                <li><a class="dropdown-item" href="/pages/c1/PM1-03">切換使用人員</a></li>
+                                <li><a class="dropdown-item dropdown-toggle" href="#" >應用組態設查</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/pages/c1/PM1-041">應用組態設定查詢</a></li>
+                                        <li><a class="dropdown-item" href="/pages/c1/PM1-042">應用組態設定變更</a></li>
+                                        <li><a class="dropdown-item" href="/pages/c1/PM1-043">使用組態設定變更</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="/pages/c1/PM1-05">部門資料查詢</a></li>
+                                <li><a class="dropdown-item dropdown-toggle" href="#">人員資料建檔</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/pages/c1/PM1-061">登入部門人員建檔</a></li>
+                                        <li><a class="dropdown-item" href="/pages/c1/Register">所有部門人員建檔</a></li>
+                                        <li><a class="dropdown-item" href="/pages/c1/PM1-063">職務代號名稱轉譯</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="/pages/c1/PM1-07">預設登入設定</a></li>
+                                <li><a class="dropdown-item" href="/pages/c1/PM1-08">登入密碼變更</a></li>
+                                <li><a class="dropdown-item" href="/pages/c1/PM1-09">操作權限設定</a></li>
+                                <li><a class="dropdown-item" href="/pages/c1/PM1-10">印表機的選用</a></li>
+                                <li><a class="dropdown-item" href="/pages/c1/PM1-11">報表邊距參數</a></li>
+                                <li><a class="dropdown-item dropdown-toggle" href="#">登入記錄查詢</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/pages/c1/PM1-121">本機單機登錄紀錄</a></li>
+                                        <li><a class="dropdown-item" href="/pages/c1/PM1-122">所有機台登錄紀錄</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="/pages/c1/PM1-13">操作訊息總覽</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                基本資料盤查
+ <!-- c2基本資料盤查 -->
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">電腦與製程對照</a></li>
+                                <li><a class="dropdown-item" href="#">機台生產類別檔</a></li>
+                                <li><a class="dropdown-item" href="#">供應商代號設查</a></li>
+                                <li><a class="dropdown-item" href="#">產品規格代號檔</a></li>
+                                <li><a class="dropdown-item" href="#">規格代號內容檔</a></li>
+                                <li><a class="dropdown-item" href="#">生產班排班作業</a></li>
+                                <li><a class="dropdown-item" href="#">生產班排班台灣</a></li>
+                                <li><a class="dropdown-item" href="#">客戶代號資料檔</a></li>
+                                <li><a class="dropdown-item" href="#">繳庫庫別資料檔</a></li>
+                                <li><a class="dropdown-item" href="#">班制的設定轉換</a></li>
+                             </ul>
+                        </li>
+                       <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                整漿基本資料
+ <!-- c3整漿基本資料 -->
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">產品等級代號檔</a></li>
+                                <li><a class="dropdown-item dropdown-toggle" href="#">製程疵點代號檔</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">經軸疵點代號檔</a></li>
+                                        <li><a class="dropdown-item" href="#">織軸疵點代號檔</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">預備動作停機代號</a></li>
+                                <li><a class="dropdown-item" href="#">非生產時間代號</a></li>
+                                <li><a class="dropdown-item" href="#">機台變更原因檔</a></li>
+                                <li><a class="dropdown-item" href="#">報表疵點對照檔</a></li>
+                                <li><a class="dropdown-item" href="#">標籤顏色建檔設查</a></li>
+                             </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                退處基本資料
+ <!-- c4退處基本資料 -->
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">產品等級代號檔</a></li>
+                                <li><a class="dropdown-item" href="#">處理劑名稱代號檔</a></li>
+                                <li><a class="dropdown-item dropdown-toggle" href="#">製程疵點代號檔</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">退漿疵點代號檔</a></li>
+                                        <li><a class="dropdown-item" href="#">處理疵點代號檔</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">預備動作停機代號</a></li>
+                                <li><a class="dropdown-item" href="#">非生產時間代號</a></li>
+                                <li><a class="dropdown-item" href="#">布軸變更原因檔</a></li>
+                                <li><a class="dropdown-item" href="#">待成檢原因代號</a></li>
+                             </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                BO管理作業
+ <!-- c5BO管理作業 -->
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">棧板代號檔</a></li>
+                                <li><a class="dropdown-item" href="#">棧版內容檔</a></li>
+                                <li><a class="dropdown-item" href="#">退漿爐基本檔</a></li>
+                                <li><a class="dropdown-item" href="#">退漿爐內容檔</a></li>
+                                <li><a class="dropdown-item" href="#">棧板資料維護</a></li>
+                                <li><a class="dropdown-item" href="#">棧板資料交換</a></li>
+                                <li><a class="dropdown-item" href="#">布軸移處理備料處倉</a></li>
+                                <li><a class="dropdown-item" href="#">棧板布軸異動查詢</a></li>
+                                <li><a class="dropdown-item" href="#">布軸資料異動查詢</a></li>
+                                <li><a class="dropdown-item" href="#">班制的設定轉換</a></li>
+                             </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                生產管理作業
+ <!-- c6生產管理作業 -->
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item dropdown-toggle" href="#">生產排程作業</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">經軸排程作業</a></li>
+                                        <li><a class="dropdown-item" href="#">織軸排程作業</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">生產變更查詢</a></li>
+                                <li><a class="dropdown-item" href="#">管理報表作業</a></li>
+                                <li><a class="dropdown-item dropdown-toggle" href="#">班生產單查修</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">經軸班生產單</a></li>
+                                        <li><a class="dropdown-item" href="#">織軸班生產單</a></li>
+                                        <li><a class="dropdown-item" href="#">退漿班生產單</a></li>
+                                        <li><a class="dropdown-item" href="#">軸班生產單</a></li>
+                                    </ul>
+                               </li>
+                               <li><a class="dropdown-item dropdown-toggle" href="#">成品資料查詢</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">經軸資料查詢</a></li>
+                                        <li><a class="dropdown-item" href="#">織軸資料查詢</a></li>
+                                        <li><a class="dropdown-item" href="#">退漿布軸查詢</a></li>
+                                        <li><a class="dropdown-item" href="#">BO資料查詢</a></li>
+                                        <li><a class="dropdown-item" href="#">處理布軸查詢</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item dropdown-toggle" href="#">布機生產資料</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">布機機班資料</a></li>
+                                        <li><a class="dropdown-item" href="#">布機品質資料</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">自傳訊發設查</a></li>
+                                <li><a class="dropdown-item" href="#">生管排程上傳</a></li>
+                                <li><a class="dropdown-item" href="#">生管資料上傳</a></li>
+                                <li><a class="dropdown-item" href="#">報表上傳查詢</a></li>
+                                <li><a class="dropdown-item" href="#">線上生產查詢</a></li>
+                                <li><a class="dropdown-item" href="#">布軸號大搜尋</a></li>
+                                 <li><a class="dropdown-item dropdown-toggle" href="#">布捆用途設查</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">BO及待FM設查</a></li>
+                                        <li><a class="dropdown-item" href="#">待CD用途設查</a></li>
+                                        <li><a class="dropdown-item" href="#">BO中用途設查</a></li>
+                                        <li><a class="dropdown-item" href="#">待FM用途設查</a></li>
+                                    </ul>
+                                </li>
+                                 <li><a class="dropdown-item dropdown-toggle" href="#">處理段布軸查詢</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">棧板布軸資料</a></li>
+                                        <li><a class="dropdown-item" href="#">退漿爐布軸資料</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">產量使用量統計</a></li>
+                                <li><a class="dropdown-item" href="#">生產紀錄追蹤表</a></li>
+                                <li><a class="dropdown-item" href="#">轉印刷生產明細</a></li>
+                             </ul>
+                        </li>
+                                                <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                生產品管作業
+ <!-- c7生產品管作業 -->
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">停機紀錄追蹤表</a></li>
+                                <li><a class="dropdown-item" href="#">品質疵點追蹤表</a></li>
+                                <li><a class="dropdown-item" href="#">布軸疵點比對表</a></li>
+                                <li><a class="dropdown-item" href="#">已生產經織軸卡</a></li>
+                                <li><a class="dropdown-item" href="#">退漿殘漿率追蹤</a></li>
+                                <li><a class="dropdown-item dropdown-toggle" href="#">金屬探測器檢知</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">金屬探測線上查詢</a></li>
+                                        <li><a class="dropdown-item" href="#">金屬探測檢知查詢</a></li>
+                                        <li><a class="dropdown-item" href="#">金屬探測檢知班報</a></li>
+                                        <li><a class="dropdown-item" href="#">金屬探測檢知月報</a></li>
+                                        <li><a class="dropdown-item" href="#">金屬探測檢知異報</a></li>
+                                        <li><a class="dropdown-item" href="#">金屬探測檢知回移</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item dropdown-toggle" href="#">製程操作記錄簿</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">整經操作紀錄簿</a></li>
+                                        <li><a class="dropdown-item" href="#">整漿操作紀錄簿</a></li>
+                                        <li><a class="dropdown-item" href="#">漿紗操作紀錄簿</a></li>
+                                        <li><a class="dropdown-item" href="#">併經操作紀錄簿</a></li>
+                                        <li><a class="dropdown-item" href="#">退漿操作紀錄簿</a></li>
+                                        <li><a class="dropdown-item" href="#">處理操作紀錄簿</a></li>
+                                    </ul>
+                                </li>
+                                    <li><a class="dropdown-item dropdown-toggle" href="#">機台檢點記錄簿</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">整經檢點紀錄表</a></li>
+                                        <li><a class="dropdown-item" href="#">整漿檢點紀錄簿</a></li>
+                                        <li><a class="dropdown-item" href="#">漿紗檢點紀錄簿</a></li>
+                                        <li><a class="dropdown-item" href="#">併經檢點紀錄簿</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">彎緯上傳追蹤表</a></li>
+                                <li><a class="dropdown-item" href="#">生產差異追蹤表</a></li>
+                                <li><a class="dropdown-item" href="#">規格差異追蹤表</a></li>
+                                <li><a class="dropdown-item" href="#">含浸桶補料紀錄</a></li>
+                                <li><a class="dropdown-item" href="#">捲取張力監測分析</a></li>
+                             </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                庫存查詢作業
+ <!-- c8庫存查詢作業 -->
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">原紗庫存查詢</a></li>
+                                <li><a class="dropdown-item" href="#">經軸庫存查詢</a></li>
+                                <li><a class="dropdown-item" href="#">織軸庫存查詢</a></li>
+                                <li><a class="dropdown-item" href="#">胚倉庫存查詢</a></li>
+                                <li><a class="dropdown-item dropdown-toggle" href="#">退漿爐庫存查詢</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">CD中庫存查詢</a></li>
+                                        <li><a class="dropdown-item" href="#">待BO庫存查詢</a></li>
+                                        <li><a class="dropdown-item" href="#">BO中庫存查詢</a></li>
+                                        <li><a class="dropdown-item" href="#">待FM庫存查詢</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">成倉庫存查詢</a></li>
+                                <li><a class="dropdown-item" href="#">布捆交運查詢</a></li>
+                                <li><a class="dropdown-item" href="#">處理備料處倉查詢</a></li>
+                                <li><a class="dropdown-item" href="#">金屬探測暫存查詢</a></li>
+                             </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                輔助說明
+ <!-- c9輔助說明 -->
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-01">應用系統架構</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-02">線上參考手冊</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-03">關於應用系統</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-04">參考模組資訊</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-05">異常紀錄查詢</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-06">異常訊息回報</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-07">電腦設備監提</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-08">訊息群組設查</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-09">訊息提報查詢</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-10">前端版本更新</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-11">應用程式更新</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-12">網路簡訊發送</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-13">電子郵件發送</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-14">簡易郵件發送</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-15">郵件傳送查詢</a></li>
+                                <li><a class="dropdown-item" href="/pages/c9/PM9-16">郵件記錄查詢</a></li>
+                             </ul>
+                        </li>
+                    </ul>
+                </div>
+                     <ul class="navbar-nav navbar-right">
+                            <!-- 打<ul class="navbar-nav navbar-right">也是靠右 -->
+                            <!-- LINK的樣式a data-toggle="tab" href="#"><span class="glyphicon glyphicon-log-in"></span> Log in  -->
+                            <li class="nav-item">
+                                <asp:LoginName ID="UserName" runat="server" Font-Bold="False" Font-Names="標楷體" Font-Size="Large" ForeColor="#CCCCCC" />
+                                    &nbsp;
+                                <li class="button"><a class="btn btn-outline-warning" href="/pages/c1/Logout" ID="Logout">Log out</a>
+                    </ul>
+            </nav>
+         <!-- 多層選單 -->
+        <script src="/Scripts/bootstrap-4-navbar.js"></script>
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+
+                <p>&copy; 2021- caridee-<%: DateTime.Now %></p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
